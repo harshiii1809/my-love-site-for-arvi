@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Arvi 💘</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #e0f7fa);
+      font-family: 'Comic Sans MS', cursive;
+      text-align: center;
+      padding: 30px;
+      color: #444;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #ff4081;
+    }
+
+    img {
+      max-width: 90%;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      margin: 20px 0;
+    }
+
+    .message {
+      font-size: 1.3em;
+      margin-top: 10px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      font-size: 1.2em;
+      margin: 20px auto;
+    }
+
+    li::before {
+      content: "❤️ ";
+    }
+
+    .yes-button {
+      margin-top: 30px;
+      background: #ff4081;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.5em;
+      color: white;
+      border-radius: 30px;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+      box-shadow: 0 8px 15px rgba(255, 64, 129, 0.4);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 1.1em;
+      color: #888;
+    }
+
+    /* Floating hearts container */
+    #hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* allows clicks through */
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      transform: rotate(45deg);
+      animation: floatUp linear forwards;
+      opacity: 0.8;
+      border-radius: 5px 5px 0 0;
+      box-shadow: inset -1px -1px 0 #c40057;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: #ff4081;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      top: 0;
+      left: 10px;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-150vh) rotate(45deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Hey Arvi 💖</h1>
+  <p class="message">I've been holding this in for a while... but here goes!</p>
+  <img src="hehehehehehehe.jpg" alt="Us 😊">
+  
+  <p class="message">Reasons why I like you:</p>
+  <ul>
+    <li>Awwwww</li>
+    <li>You so cuteeee</li>
+    <li>And sweet 💕</li>
+  </ul>
+
+  <p class="message" style="font-size: 1.6em;">So... will you be my boyfriend?</p>
+
+  <button class="yes-button" onclick="alert('YAYYYYYY!!! 🥰')">YES 💘</button>
+
+  <footer>
+    Love, Harshii 💌
+  </footer>
+
+  <!-- Background music -->
+  <audio autoplay loop>
+    <source src="https://dl.sndup.net/3vqk/Tere%20Naina%20-%20MyMp3Song.Com.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating hearts container -->
+  <div id="hearts"></div>
+
+  <script>
+    const heartsContainer = document.getElementById('hearts');
+
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      // Random horizontal position in viewport width
+      heart.style.left = Math.random() * 100 + 'vw';
+      // Random size between 15px and 30px
+      const size = Math.random() * 15 + 15;
+      heart.style.width = size + 'px';
+      heart.style.height = size + 'px';
+      // Random animation duration between 4s and 8s
+      heart.style.animationDuration = (Math.random() * 4 + 4) + 's';
+
+      heartsContainer.appendChild(heart);
+
+      // Remove heart after animation ends (~8s)
+      setTimeout(() => {
+        heartsContainer.removeChild(heart);
+      }, 8000);
+    }
+
+    // Create a heart every 300ms
+    setInterval(createHeart, 300);
+  </script>
+</body>
+</html>
